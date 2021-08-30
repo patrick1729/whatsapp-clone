@@ -5,7 +5,9 @@
   "scripts": {
     "ng": "nx",
     "postinstall": "node ./decorate-angular-cli.js && ngcc --properties es2015 browser module main",
-    "start": "nx run whatsapp-ui:serve && nx run whatsapp-backend:serve",
+    "start": "nx run whatsapp-ui:serve",
+    "start:node-server": "nx run whatsapp-backend:serve",
+    "build:prod": "npx nx run-many --target=build --projects=whatsapp-ui,whatsapp-backend",
     "build": "nx build",
     "test": "nx test"
   },
