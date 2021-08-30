@@ -1,7 +1,7 @@
 {
   "npmScope": "whatsapp-clone",
   "affected": {
-    "defaultBase": "master"
+    "defaultBase": "main"
   },
   "implicitDependencies": {
     "package.json": {
@@ -14,12 +14,7 @@
     "default": {
       "runner": "@nrwl/nx-cloud",
       "options": {
-        "cacheableOperations": [
-          "build",
-          "lint",
-          "test",
-          "e2e"
-        ],
+        "cacheableOperations": ["build", "lint", "test", "e2e"],
         "accessToken": "ODkyZjMzNGEtZGIxOC00MTkyLWE5MWYtNGQ4NGFiZWEwYWM1fHJlYWQtd3JpdGU="
       }
     }
@@ -33,14 +28,12 @@
     ]
   },
   "projects": {
-    "whatsapp-clone": {
+    "whatsapp-ui": {
       "tags": []
     },
-    "whatsapp-clone-e2e": {
+    "whatsapp-ui-e2e": {
       "tags": [],
-      "implicitDependencies": [
-        "whatsapp-clone"
-      ]
+      "implicitDependencies": ["whatsapp-ui"]
     }
   }
 }

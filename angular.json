@@ -1,27 +1,27 @@
 {
   "version": 1,
   "projects": {
-    "whatsapp-clone": {
+    "whatsapp-ui": {
       "projectType": "application",
-      "root": "apps/whatsapp-clone",
-      "sourceRoot": "apps/whatsapp-clone/src",
+      "root": "apps/whatsapp-ui",
+      "sourceRoot": "apps/whatsapp-ui/src",
       "prefix": "whatsapp-clone",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "outputs": ["{options.outputPath}"],
           "options": {
-            "outputPath": "dist/apps/whatsapp-clone",
-            "index": "apps/whatsapp-clone/src/index.html",
-            "main": "apps/whatsapp-clone/src/main.ts",
-            "polyfills": "apps/whatsapp-clone/src/polyfills.ts",
-            "tsConfig": "apps/whatsapp-clone/tsconfig.app.json",
+            "outputPath": "dist/apps/whatsapp-ui",
+            "index": "apps/whatsapp-ui/src/index.html",
+            "main": "apps/whatsapp-ui/src/main.ts",
+            "polyfills": "apps/whatsapp-ui/src/polyfills.ts",
+            "tsConfig": "apps/whatsapp-ui/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "apps/whatsapp-clone/src/favicon.ico",
-              "apps/whatsapp-clone/src/assets"
+              "apps/whatsapp-ui/src/favicon.ico",
+              "apps/whatsapp-ui/src/assets"
             ],
-            "styles": ["apps/whatsapp-clone/src/styles.scss"],
+            "styles": ["apps/whatsapp-ui/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -40,8 +40,8 @@
               ],
               "fileReplacements": [
                 {
-                  "replace": "apps/whatsapp-clone/src/environments/environment.ts",
-                  "with": "apps/whatsapp-clone/src/environments/environment.prod.ts"
+                  "replace": "apps/whatsapp-ui/src/environments/environment.ts",
+                  "with": "apps/whatsapp-ui/src/environments/environment.prod.ts"
                 }
               ],
               "outputHashing": "all"
@@ -61,10 +61,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "whatsapp-clone:build:production"
+              "browserTarget": "whatsapp-ui:build:production"
             },
             "development": {
-              "browserTarget": "whatsapp-clone:build:development"
+              "browserTarget": "whatsapp-ui:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -72,50 +72,50 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "whatsapp-clone:build"
+            "browserTarget": "whatsapp-ui:build"
           }
         },
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "apps/whatsapp-clone/src/**/*.ts",
-              "apps/whatsapp-clone/src/**/*.html"
+              "apps/whatsapp-ui/src/**/*.ts",
+              "apps/whatsapp-ui/src/**/*.html"
             ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/whatsapp-clone"],
+          "outputs": ["coverage/apps/whatsapp-ui"],
           "options": {
-            "jestConfig": "apps/whatsapp-clone/jest.config.js",
+            "jestConfig": "apps/whatsapp-ui/jest.config.js",
             "passWithNoTests": true
           }
         }
       }
     },
-    "whatsapp-clone-e2e": {
-      "root": "apps/whatsapp-clone-e2e",
-      "sourceRoot": "apps/whatsapp-clone-e2e/src",
+    "whatsapp-ui-e2e": {
+      "root": "apps/whatsapp-ui-e2e",
+      "sourceRoot": "apps/whatsapp-ui-e2e/src",
       "projectType": "application",
       "architect": {
         "e2e": {
           "builder": "@nrwl/cypress:cypress",
           "options": {
-            "cypressConfig": "apps/whatsapp-clone-e2e/cypress.json",
-            "devServerTarget": "whatsapp-clone:serve:development",
-            "tsConfig": "apps/whatsapp-clone-e2e/tsconfig.json"
+            "cypressConfig": "apps/whatsapp-ui-e2e/cypress.json",
+            "devServerTarget": "whatsapp-ui:serve:development",
+            "tsConfig": "apps/whatsapp-ui-e2e/tsconfig.json"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "whatsapp-clone:serve:production"
+              "devServerTarget": "whatsapp-ui:serve:production"
             }
           }
         },
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/whatsapp-clone-e2e/**/*.{js,ts}"]
+            "lintFilePatterns": ["apps/whatsapp-ui-e2e/**/*.{js,ts}"]
           }
         }
       }
@@ -152,5 +152,5 @@
       "style": "scss"
     }
   },
-  "defaultProject": "whatsapp-clone"
+  "defaultProject": "whatsapp-ui"
 }

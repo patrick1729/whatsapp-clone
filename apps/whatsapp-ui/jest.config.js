@@ -1,5 +1,5 @@
 module.exports = {
-  displayName: 'whatsapp-clone',
+  displayName: 'whatsapp-ui',
   preset: '../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
@@ -8,7 +8,7 @@ module.exports = {
       stringifyContentPathRegex: '\\.(html|svg)$',
     },
   },
-  coverageDirectory: '../../coverage/apps/whatsapp-clone',
+  coverageDirectory: '../../coverage/apps/whatsapp-ui',
   transform: {
     '^.+\\.(ts|js|html)$': 'jest-preset-angular',
   },
