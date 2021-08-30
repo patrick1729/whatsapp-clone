@@ -1,42 +1,45 @@
 {
-  "npmScope": "whatsapp-clone",
-  "affected": {
-    "defaultBase": "main"
-  },
-  "implicitDependencies": {
-    "package.json": {
-      "dependencies": "*",
-      "devDependencies": "*"
+    "npmScope": "whatsapp-clone",
+    "affected": {
+        "defaultBase": "main"
     },
-    ".eslintrc.json": "*"
-  },
-  "tasksRunnerOptions": {
-    "default": {
-      "runner": "@nrwl/nx-cloud",
-      "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"],
-        "accessToken": "ODkyZjMzNGEtZGIxOC00MTkyLWE5MWYtNGQ4NGFiZWEwYWM1fHJlYWQtd3JpdGU="
-      }
+    "implicitDependencies": {
+        "package.json": {
+            "dependencies": "*",
+            "devDependencies": "*"
+        },
+        ".eslintrc.json": "*"
+    },
+    "tasksRunnerOptions": {
+        "default": {
+            "runner": "@nrwl/nx-cloud",
+            "options": {
+                "cacheableOperations": ["build", "lint", "test", "e2e"],
+                "accessToken": "ODkyZjMzNGEtZGIxOC00MTkyLWE5MWYtNGQ4NGFiZWEwYWM1fHJlYWQtd3JpdGU="
+            }
+        }
+    },
+    "targetDependencies": {
+        "build": [
+            {
+                "target": "build",
+                "projects": "dependencies"
+            }
+        ]
+    },
+    "projects": {
+        "data": {
+            "tags": []
+        },
+        "whatsapp-backend": {
+            "tags": []
+        },
+        "whatsapp-ui": {
+            "tags": []
+        },
+        "whatsapp-ui-e2e": {
+            "tags": [],
+            "implicitDependencies": ["whatsapp-ui"]
+        }
     }
-  },
-  "targetDependencies": {
-    "build": [
-      {
-        "target": "build",
-        "projects": "dependencies"
-      }
-    ]
-  },
-  "projects": {
-    "whatsapp-backend": {
-      "tags": []
-    },
-    "whatsapp-ui": {
-      "tags": []
-    },
-    "whatsapp-ui-e2e": {
-      "tags": [],
-      "implicitDependencies": ["whatsapp-ui"]
-    }
-  }
 }

@@ -1,8 +1,21 @@
 import { Injectable } from '@nestjs/common';
+import { Todo } from '@whatsapp-clone/data';
 
 @Injectable()
 export class AppService {
-  getData(): { message: string } {
-    return { message: 'Welcome to whatsapp-backend!' };
-  }
+    todos: Todo[] = [{
+        title: 'Todo 1'
+    }, {
+        title: 'Todo 2'
+    }];
+
+    getData(): Todo[] {
+        return this.todos;
+    }
+
+    addTodo(): void {
+        this.todos.push({
+            title: `New todo ${Math.floor(Math.random() * 1000)}`
+        });
+    }
 }
