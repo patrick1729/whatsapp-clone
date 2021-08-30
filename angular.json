@@ -22,6 +22,31 @@
                 }
             }
         },
+        "ui": {
+            "projectType": "library",
+            "root": "libs/ui",
+            "sourceRoot": "libs/ui/src",
+            "prefix": "whatsapp-clone",
+            "architect": {
+                "test": {
+                    "builder": "@nrwl/jest:jest",
+                    "outputs": ["coverage/libs/ui"],
+                    "options": {
+                        "jestConfig": "libs/ui/jest.config.js",
+                        "passWithNoTests": true
+                    }
+                },
+                "lint": {
+                    "builder": "@nrwl/linter:eslint",
+                    "options": {
+                        "lintFilePatterns": [
+                            "libs/ui/src/**/*.ts",
+                            "libs/ui/src/**/*.html"
+                        ]
+                    }
+                }
+            }
+        },
         "whatsapp-backend": {
             "root": "apps/whatsapp-backend",
             "sourceRoot": "apps/whatsapp-backend/src",

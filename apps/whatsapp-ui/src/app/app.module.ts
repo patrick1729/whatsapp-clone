@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { UiModule } from '@whatsapp-clone/ui';
 
 import { AppComponent } from './app.component';
 
@@ -8,7 +9,8 @@ import { AppComponent } from './app.component';
     declarations: [AppComponent],
     imports: [
         BrowserModule,
-        HttpClientModule
+        HttpClientModule,
+        UiModule
     ],
     providers: [],
     bootstrap: [AppComponent],

@@ -15,7 +15,8 @@
         "skipDefaultLibCheck": true,
         "baseUrl": ".",
         "paths": {
-            "@whatsapp-clone/data": ["libs/data/src/index.ts"]
+            "@whatsapp-clone/data": ["libs/data/src/index.ts"],
+            "@whatsapp-clone/ui": ["libs/ui/src/index.ts"]
         }
     },
     "exclude": ["node_modules", "tmp"]

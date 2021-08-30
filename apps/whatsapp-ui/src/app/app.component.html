@@ -1,7 +1,5 @@
 <h1>Todos</h1>
 
-<ul>
-  <li *ngFor="let t of todos" class="todo">{{ t.title }}</li>
-</ul>
+<whatsapp-clone-todos [todos]="todos"></whatsapp-clone-todos>
 
 <button id="add-todo" (click)="addTodo()">Add Todo</button>
