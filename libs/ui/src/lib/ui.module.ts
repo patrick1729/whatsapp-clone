@@ -4,11 +4,7 @@ import { TodosComponent } from './todos/todos.component';
 
 @NgModule({
     imports: [CommonModule],
-    declarations: [
-      TodosComponent
-    ],
-    exports: [
-      TodosComponent
-    ],
+    declarations: [TodosComponent],
+    exports: [TodosComponent],
 })
 export class UiModule {}

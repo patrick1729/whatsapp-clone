@@ -10,9 +10,7 @@ import { Todo } from '@whatsapp-clone/data';
 export class AppComponent {
     todos: Todo[] = [];
 
-    constructor(
-        private httpClient: HttpClient
-    ) {
+    constructor(private httpClient: HttpClient) {
         this.fetch();
     }
 
@@ -21,6 +19,8 @@ export class AppComponent {
     }
 
     fetch(): void {
-        this.httpClient.get<Todo[]>('api/todos').subscribe(response => this.todos = response);
+        this.httpClient
+            .get<Todo[]>('api/todos')
+            .subscribe((response) => (this.todos = response));
     }
 }

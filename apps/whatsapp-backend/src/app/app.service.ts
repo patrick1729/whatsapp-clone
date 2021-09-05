@@ -3,11 +3,14 @@ import { Todo } from '@whatsapp-clone/data';
 
 @Injectable()
 export class AppService {
-    todos: Todo[] = [{
-        title: 'Todo 1'
-    }, {
-        title: 'Todo 2'
-    }];
+    todos: Todo[] = [
+        {
+            title: 'Todo 1',
+        },
+        {
+            title: 'Todo 2',
+        },
+    ];
 
     getData(): Todo[] {
         return this.todos;
@@ -15,7 +18,7 @@ export class AppService {
 
     addTodo(): void {
         this.todos.push({
-            title: `New todo ${Math.floor(Math.random() * 1000)}`
+            title: `New todo ${Math.floor(Math.random() * 1000)}`,
         });
     }
 }
