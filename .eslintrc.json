@@ -13,8 +13,20 @@
             "allow": [],
             "depConstraints": [
               {
-                "sourceTag": "*",
-                "onlyDependOnLibsWithTags": ["*"]
+                "sourceTag": "scope:model",
+                "onlyDependOnLibsWithTags": ["scope:model"]
+              },
+              {
+                "sourceTag": "scope:common-components",
+                "onlyDependOnLibsWithTags": ["scope:common-components", "scope:model"]
+              },
+              {
+                "sourceTag": "scope:whatsapp-backend",
+                "onlyDependOnLibsWithTags": ["scope:whatsapp-backend", "scope:model"]
+              },
+              {
+                "sourceTag": "scope:whatsapp-ui",
+                "onlyDependOnLibsWithTags": ["scope:whatsapp-ui", "scope:model"]
               }
             ]
           }

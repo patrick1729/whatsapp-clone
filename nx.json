@@ -29,19 +29,19 @@
     },
     "projects": {
         "data": {
-            "tags": []
+            "tags": ["scope:model"]
         },
         "ui": {
-            "tags": []
+            "tags": ["scope:common-components"]
         },
         "whatsapp-backend": {
-            "tags": []
+            "tags": ["scope:whatsapp-backend"]
         },
         "whatsapp-ui": {
-            "tags": []
+            "tags": ["scope:whatsapp-ui"]
         },
         "whatsapp-ui-e2e": {
-            "tags": [],
+            "tags": ["scope:whatsapp-ui"],
             "implicitDependencies": ["whatsapp-ui"]
         }
     }
