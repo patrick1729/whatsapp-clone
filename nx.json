@@ -39,10 +39,6 @@
         },
         "whatsapp-ui": {
             "tags": ["scope:whatsapp-ui"]
-        },
-        "whatsapp-ui-e2e": {
-            "tags": ["scope:whatsapp-ui"],
-            "implicitDependencies": ["whatsapp-ui"]
         }
     }
 }
