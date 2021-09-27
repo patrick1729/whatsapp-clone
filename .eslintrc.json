@@ -26,7 +26,7 @@
               },
               {
                 "sourceTag": "scope:whatsapp-ui",
-                "onlyDependOnLibsWithTags": ["scope:whatsapp-ui", "scope:model"]
+                "onlyDependOnLibsWithTags": ["scope:whatsapp-ui", "scope:model", "scope:common-components"]
               }
             ]
           }

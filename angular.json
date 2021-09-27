@@ -9,12 +9,16 @@
                 "lint": {
                     "builder": "@nrwl/linter:eslint",
                     "options": {
-                        "lintFilePatterns": ["libs/data/**/*.ts"]
+                        "lintFilePatterns": [
+                            "libs/data/**/*.ts"
+                        ]
                     }
                 },
                 "test": {
                     "builder": "@nrwl/jest:jest",
-                    "outputs": ["coverage/libs/data"],
+                    "outputs": [
+                        "coverage/libs/data"
+                    ],
                     "options": {
                         "jestConfig": "libs/data/jest.config.js",
                         "passWithNoTests": true
@@ -30,7 +34,9 @@
             "architect": {
                 "test": {
                     "builder": "@nrwl/jest:jest",
-                    "outputs": ["coverage/libs/ui"],
+                    "outputs": [
+                        "coverage/libs/ui"
+                    ],
                     "options": {
                         "jestConfig": "libs/ui/jest.config.js",
                         "passWithNoTests": true
@@ -47,6 +53,45 @@
                 }
             }
         },
+        "util": {
+            "root": "libs/util",
+            "sourceRoot": "libs/util/src",
+            "projectType": "library",
+            "architect": {
+                "build": {
+                    "builder": "@nrwl/workspace:tsc",
+                    "outputs": [
+                        "{options.outputPath}"
+                    ],
+                    "options": {
+                        "outputPath": "dist/libs/util",
+                        "main": "libs/util/src/index.ts",
+                        "tsConfig": "libs/util/tsconfig.lib.json",
+                        "assets": [
+                            "libs/util/*.md"
+                        ]
+                    }
+                },
+                "lint": {
+                    "builder": "@nrwl/linter:eslint",
+                    "options": {
+                        "lintFilePatterns": [
+                            "libs/util/**/*.ts"
+                        ]
+                    }
+                },
+                "test": {
+                    "builder": "@nrwl/jest:jest",
+                    "outputs": [
+                        "coverage/libs/util"
+                    ],
+                    "options": {
+                        "jestConfig": "libs/util/jest.config.js",
+                        "passWithNoTests": true
+                    }
+                }
+            }
+        },
         "whatsapp-backend": {
             "root": "apps/whatsapp-backend",
             "sourceRoot": "apps/whatsapp-backend/src",
@@ -54,12 +99,16 @@
             "architect": {
                 "build": {
                     "builder": "@nrwl/node:build",
-                    "outputs": ["{options.outputPath}"],
+                    "outputs": [
+                        "{options.outputPath}"
+                    ],
                     "options": {
                         "outputPath": "dist/apps/whatsapp-backend",
                         "main": "apps/whatsapp-backend/src/main.ts",
                         "tsConfig": "apps/whatsapp-backend/tsconfig.app.json",
-                        "assets": ["apps/whatsapp-backend/src/assets"]
+                        "assets": [
+                            "apps/whatsapp-backend/src/assets"
+                        ]
                     },
                     "configurations": {
                         "production": {
@@ -84,12 +133,16 @@
                 "lint": {
                     "builder": "@nrwl/linter:eslint",
                     "options": {
-                        "lintFilePatterns": ["apps/whatsapp-backend/**/*.ts"]
+                        "lintFilePatterns": [
+                            "apps/whatsapp-backend/**/*.ts"
+                        ]
                     }
                 },
                 "test": {
                     "builder": "@nrwl/jest:jest",
-                    "outputs": ["coverage/apps/whatsapp-backend"],
+                    "outputs": [
+                        "coverage/apps/whatsapp-backend"
+                    ],
                     "options": {
                         "jestConfig": "apps/whatsapp-backend/jest.config.js",
                         "passWithNoTests": true
@@ -104,8 +157,10 @@
             "prefix": "whatsapp-clone",
             "architect": {
                 "build": {
-                    "builder": "@angular-devkit/build-angular:browser",
-                    "outputs": ["{options.outputPath}"],
+                    "builder": "@nrwl/angular:webpack-browser",
+                    "outputs": [
+                        "{options.outputPath}"
+                    ],
                     "options": {
                         "outputPath": "dist/apps/whatsapp-ui",
                         "index": "apps/whatsapp-ui/src/index.html",
@@ -117,7 +172,9 @@
                             "apps/whatsapp-ui/src/favicon.ico",
                             "apps/whatsapp-ui/src/assets"
                         ],
-                        "styles": ["apps/whatsapp-ui/src/styles.scss"],
+                        "styles": [
+                            "apps/whatsapp-ui/src/styles.scss"
+                        ],
                         "scripts": []
                     },
                     "configurations": {
@@ -154,19 +211,21 @@
                     "defaultConfiguration": "production"
                 },
                 "serve": {
-                    "builder": "@angular-devkit/build-angular:dev-server",
+                    "builder": "@nrwl/web:file-server",
                     "configurations": {
                         "production": {
-                            "browserTarget": "whatsapp-ui:build:production"
+                            "buildTarget": "whatsapp-ui:build:production"
                         },
                         "development": {
-                            "browserTarget": "whatsapp-ui:build:development"
+                            "buildTarget": "whatsapp-ui:build:development"
                         }
                     },
                     "defaultConfiguration": "development",
                     "options": {
                         "proxyConfig": "apps/whatsapp-ui/proxy.conf.json",
-                        "browserTarget": "whatsapp-ui:build"
+                        "buildTarget": "whatsapp-ui:build",
+                        "withDeps": true,
+                        "parallel": true
                     }
                 },
                 "extract-i18n": {
@@ -186,7 +245,9 @@
                 },
                 "test": {
                     "builder": "@nrwl/jest:jest",
-                    "outputs": ["coverage/apps/whatsapp-ui"],
+                    "outputs": [
+                        "coverage/apps/whatsapp-ui"
+                    ],
                     "options": {
                         "jestConfig": "apps/whatsapp-ui/jest.config.js",
                         "passWithNoTests": true

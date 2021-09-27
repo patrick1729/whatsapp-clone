@@ -9,7 +9,8 @@
         "start:node-server": "nx run whatsapp-backend:serve",
         "build:prod": "npx nx run-many --target=build --projects=whatsapp-ui,whatsapp-backend",
         "build": "nx build",
-        "test": "nx test"
+        "test": "nx test",
+        "lint": "nx lint whatsapp-ui type-check && nx lint whatsapp-backend"
     },
     "private": true,
     "dependencies": {
@@ -25,6 +26,7 @@
         "@nestjs/core": "^7.0.0",
         "@nestjs/platform-express": "^7.0.0",
         "@nrwl/angular": "12.8.0",
+        "@nrwl/web": "^12.9.0",
         "reflect-metadata": "^0.1.13",
         "rxjs": "~6.6.0",
         "tslib": "^2.0.0",

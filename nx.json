@@ -34,6 +34,9 @@
         "ui": {
             "tags": ["scope:common-components"]
         },
+        "util": {
+            "tags": []
+        },
         "whatsapp-backend": {
             "tags": ["scope:whatsapp-backend"]
         },
