@@ -28,8 +28,17 @@
         ]
     },
     "projects": {
+        "dashboard": {
+            "tags": []
+        },
         "data": {
             "tags": ["scope:model"]
+        },
+        "login": {
+            "tags": []
+        },
+        "shared-data-access-user": {
+            "tags": []
         },
         "ui": {
             "tags": ["scope:common-components"]

@@ -16,6 +16,9 @@
         "baseUrl": ".",
         "paths": {
             "@whatsapp-clone/data": ["libs/data/src/index.ts"],
+            "@whatsapp-clone/shared/data-access-user": [
+                "libs/shared/data-access-user/src/index.ts"
+            ],
             "@whatsapp-clone/ui": ["libs/ui/src/index.ts"],
             "@whatsapp-clone/util": ["libs/util/src/index.ts"]
         }

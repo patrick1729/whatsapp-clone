@@ -1,6 +1,112 @@
 {
     "version": 1,
     "projects": {
+        "dashboard": {
+            "projectType": "application",
+            "root": "apps/dashboard",
+            "sourceRoot": "apps/dashboard/src",
+            "prefix": "whatsapp-clone",
+            "architect": {
+                "build": {
+                    "builder": "@nrwl/angular:webpack-browser",
+                    "outputs": ["{options.outputPath}"],
+                    "options": {
+                        "outputPath": "dist/apps/dashboard",
+                        "index": "apps/dashboard/src/index.html",
+                        "main": "apps/dashboard/src/main.ts",
+                        "polyfills": "apps/dashboard/src/polyfills.ts",
+                        "tsConfig": "apps/dashboard/tsconfig.app.json",
+                        "inlineStyleLanguage": "scss",
+                        "assets": [
+                            "apps/dashboard/src/favicon.ico",
+                            "apps/dashboard/src/assets"
+                        ],
+                        "styles": ["apps/dashboard/src/styles.scss"],
+                        "scripts": [],
+                        "customWebpackConfig": {
+                            "path": "apps/dashboard/webpack.config.js"
+                        }
+                    },
+                    "configurations": {
+                        "production": {
+                            "budgets": [
+                                {
+                                    "type": "initial",
+                                    "maximumWarning": "500kb",
+                                    "maximumError": "1mb"
+                                },
+                                {
+                                    "type": "anyComponentStyle",
+                                    "maximumWarning": "2kb",
+                                    "maximumError": "4kb"
+                                }
+                            ],
+                            "fileReplacements": [
+                                {
+                                    "replace": "apps/dashboard/src/environments/environment.ts",
+                                    "with": "apps/dashboard/src/environments/environment.prod.ts"
+                                }
+                            ],
+                            "outputHashing": "all",
+                            "customWebpackConfig": {
+                                "path": "apps/dashboard/webpack.prod.config.js"
+                            }
+                        },
+                        "development": {
+                            "buildOptimizer": false,
+                            "optimization": false,
+                            "vendorChunk": true,
+                            "extractLicenses": false,
+                            "sourceMap": true,
+                            "namedChunks": true
+                        }
+                    },
+                    "defaultConfiguration": "production"
+                },
+                "serve": {
+                    "builder": "@nrwl/angular:webpack-server",
+                    "configurations": {
+                        "production": {
+                            "browserTarget": "dashboard:build:production"
+                        },
+                        "development": {
+                            "browserTarget": "dashboard:build:development"
+                        }
+                    },
+                    "defaultConfiguration": "development",
+                    "options": {}
+                },
+                "extract-i18n": {
+                    "builder": "@angular-devkit/build-angular:extract-i18n",
+                    "options": {
+                        "browserTarget": "dashboard:build"
+                    }
+                },
+                "lint": {
+                    "builder": "@nrwl/linter:eslint",
+                    "options": {
+                        "lintFilePatterns": [
+                            "apps/dashboard/src/**/*.ts",
+                            "apps/dashboard/src/**/*.html"
+                        ]
+                    }
+                },
+                "test": {
+                    "builder": "@nrwl/jest:jest",
+                    "outputs": ["coverage/apps/dashboard"],
+                    "options": {
+                        "jestConfig": "apps/dashboard/jest.config.js",
+                        "passWithNoTests": true
+                    }
+                },
+                "serve-mfe": {
+                    "builder": "@nrwl/workspace:run-commands",
+                    "options": {
+                        "commands": ["nx serve login", "nx serve dashboard"]
+                    }
+                }
+            }
+        },
         "data": {
             "root": "libs/data",
             "sourceRoot": "libs/data/src",
@@ -9,19 +115,142 @@
                 "lint": {
                     "builder": "@nrwl/linter:eslint",
                     "options": {
+                        "lintFilePatterns": ["libs/data/**/*.ts"]
+                    }
+                },
+                "test": {
+                    "builder": "@nrwl/jest:jest",
+                    "outputs": ["coverage/libs/data"],
+                    "options": {
+                        "jestConfig": "libs/data/jest.config.js",
+                        "passWithNoTests": true
+                    }
+                }
+            }
+        },
+        "login": {
+            "projectType": "application",
+            "root": "apps/login",
+            "sourceRoot": "apps/login/src",
+            "prefix": "whatsapp-clone",
+            "architect": {
+                "build": {
+                    "builder": "@nrwl/angular:webpack-browser",
+                    "outputs": ["{options.outputPath}"],
+                    "options": {
+                        "outputPath": "dist/apps/login",
+                        "index": "apps/login/src/index.html",
+                        "main": "apps/login/src/main.ts",
+                        "polyfills": "apps/login/src/polyfills.ts",
+                        "tsConfig": "apps/login/tsconfig.app.json",
+                        "inlineStyleLanguage": "scss",
+                        "assets": [
+                            "apps/login/src/favicon.ico",
+                            "apps/login/src/assets"
+                        ],
+                        "styles": ["apps/login/src/styles.scss"],
+                        "scripts": [],
+                        "customWebpackConfig": {
+                            "path": "apps/login/webpack.config.js"
+                        }
+                    },
+                    "configurations": {
+                        "production": {
+                            "budgets": [
+                                {
+                                    "type": "initial",
+                                    "maximumWarning": "500kb",
+                                    "maximumError": "1mb"
+                                },
+                                {
+                                    "type": "anyComponentStyle",
+                                    "maximumWarning": "2kb",
+                                    "maximumError": "4kb"
+                                }
+                            ],
+                            "fileReplacements": [
+                                {
+                                    "replace": "apps/login/src/environments/environment.ts",
+                                    "with": "apps/login/src/environments/environment.prod.ts"
+                                }
+                            ],
+                            "outputHashing": "all",
+                            "customWebpackConfig": {
+                                "path": "apps/login/webpack.prod.config.js"
+                            }
+                        },
+                        "development": {
+                            "buildOptimizer": false,
+                            "optimization": false,
+                            "vendorChunk": true,
+                            "extractLicenses": false,
+                            "sourceMap": true,
+                            "namedChunks": true
+                        }
+                    },
+                    "defaultConfiguration": "production"
+                },
+                "serve": {
+                    "builder": "@nrwl/angular:webpack-server",
+                    "configurations": {
+                        "production": {
+                            "browserTarget": "login:build:production"
+                        },
+                        "development": {
+                            "browserTarget": "login:build:development"
+                        }
+                    },
+                    "defaultConfiguration": "development",
+                    "options": {
+                        "port": 4201
+                    }
+                },
+                "extract-i18n": {
+                    "builder": "@angular-devkit/build-angular:extract-i18n",
+                    "options": {
+                        "browserTarget": "login:build"
+                    }
+                },
+                "lint": {
+                    "builder": "@nrwl/linter:eslint",
+                    "options": {
                         "lintFilePatterns": [
-                            "libs/data/**/*.ts"
+                            "apps/login/src/**/*.ts",
+                            "apps/login/src/**/*.html"
                         ]
                     }
                 },
                 "test": {
                     "builder": "@nrwl/jest:jest",
-                    "outputs": [
-                        "coverage/libs/data"
-                    ],
+                    "outputs": ["coverage/apps/login"],
                     "options": {
-                        "jestConfig": "libs/data/jest.config.js",
+                        "jestConfig": "apps/login/jest.config.js",
                         "passWithNoTests": true
+                    }
+                }
+            }
+        },
+        "shared-data-access-user": {
+            "projectType": "library",
+            "root": "libs/shared/data-access-user",
+            "sourceRoot": "libs/shared/data-access-user/src",
+            "prefix": "whatsapp-clone",
+            "architect": {
+                "test": {
+                    "builder": "@nrwl/jest:jest",
+                    "outputs": ["coverage/libs/shared/data-access-user"],
+                    "options": {
+                        "jestConfig": "libs/shared/data-access-user/jest.config.js",
+                        "passWithNoTests": true
+                    }
+                },
+                "lint": {
+                    "builder": "@nrwl/linter:eslint",
+                    "options": {
+                        "lintFilePatterns": [
+                            "libs/shared/data-access-user/src/**/*.ts",
+                            "libs/shared/data-access-user/src/**/*.html"
+                        ]
                     }
                 }
             }
@@ -34,9 +263,7 @@
             "architect": {
                 "test": {
                     "builder": "@nrwl/jest:jest",
-                    "outputs": [
-                        "coverage/libs/ui"
-                    ],
+                    "outputs": ["coverage/libs/ui"],
                     "options": {
                         "jestConfig": "libs/ui/jest.config.js",
                         "passWithNoTests": true
@@ -60,31 +287,23 @@
             "architect": {
                 "build": {
                     "builder": "@nrwl/workspace:tsc",
-                    "outputs": [
-                        "{options.outputPath}"
-                    ],
+                    "outputs": ["{options.outputPath}"],
                     "options": {
                         "outputPath": "dist/libs/util",
                         "main": "libs/util/src/index.ts",
                         "tsConfig": "libs/util/tsconfig.lib.json",
-                        "assets": [
-                            "libs/util/*.md"
-                        ]
+                        "assets": ["libs/util/*.md"]
                     }
                 },
                 "lint": {
                     "builder": "@nrwl/linter:eslint",
                     "options": {
-                        "lintFilePatterns": [
-                            "libs/util/**/*.ts"
-                        ]
+                        "lintFilePatterns": ["libs/util/**/*.ts"]
                     }
                 },
                 "test": {
                     "builder": "@nrwl/jest:jest",
-                    "outputs": [
-                        "coverage/libs/util"
-                    ],
+                    "outputs": ["coverage/libs/util"],
                     "options": {
                         "jestConfig": "libs/util/jest.config.js",
                         "passWithNoTests": true
@@ -99,16 +318,12 @@
             "architect": {
                 "build": {
                     "builder": "@nrwl/node:build",
-                    "outputs": [
-                        "{options.outputPath}"
-                    ],
+                    "outputs": ["{options.outputPath}"],
                     "options": {
                         "outputPath": "dist/apps/whatsapp-backend",
                         "main": "apps/whatsapp-backend/src/main.ts",
                         "tsConfig": "apps/whatsapp-backend/tsconfig.app.json",
-                        "assets": [
-                            "apps/whatsapp-backend/src/assets"
-                        ]
+                        "assets": ["apps/whatsapp-backend/src/assets"]
                     },
                     "configurations": {
                         "production": {
@@ -133,16 +348,12 @@
                 "lint": {
                     "builder": "@nrwl/linter:eslint",
                     "options": {
-                        "lintFilePatterns": [
-                            "apps/whatsapp-backend/**/*.ts"
-                        ]
+                        "lintFilePatterns": ["apps/whatsapp-backend/**/*.ts"]
                     }
                 },
                 "test": {
                     "builder": "@nrwl/jest:jest",
-                    "outputs": [
-                        "coverage/apps/whatsapp-backend"
-                    ],
+                    "outputs": ["coverage/apps/whatsapp-backend"],
                     "options": {
                         "jestConfig": "apps/whatsapp-backend/jest.config.js",
                         "passWithNoTests": true
@@ -158,9 +369,7 @@
             "architect": {
                 "build": {
                     "builder": "@nrwl/angular:webpack-browser",
-                    "outputs": [
-                        "{options.outputPath}"
-                    ],
+                    "outputs": ["{options.outputPath}"],
                     "options": {
                         "outputPath": "dist/apps/whatsapp-ui",
                         "index": "apps/whatsapp-ui/src/index.html",
@@ -172,9 +381,7 @@
                             "apps/whatsapp-ui/src/favicon.ico",
                             "apps/whatsapp-ui/src/assets"
                         ],
-                        "styles": [
-                            "apps/whatsapp-ui/src/styles.scss"
-                        ],
+                        "styles": ["apps/whatsapp-ui/src/styles.scss"],
                         "scripts": []
                     },
                     "configurations": {
@@ -245,9 +452,7 @@
                 },
                 "test": {
                     "builder": "@nrwl/jest:jest",
-                    "outputs": [
-                        "coverage/apps/whatsapp-ui"
-                    ],
+                    "outputs": ["coverage/apps/whatsapp-ui"],
                     "options": {
                         "jestConfig": "apps/whatsapp-ui/jest.config.js",
                         "passWithNoTests": true
