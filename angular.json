@@ -89,7 +89,8 @@
                             "apps/dashboard/src/**/*.ts",
                             "apps/dashboard/src/**/*.html"
                         ]
-                    }
+                    },
+                    "outputs": ["{options.outputFile}"]
                 },
                 "test": {
                     "builder": "@nrwl/jest:jest",
@@ -116,7 +117,8 @@
                     "builder": "@nrwl/linter:eslint",
                     "options": {
                         "lintFilePatterns": ["libs/data/**/*.ts"]
-                    }
+                    },
+                    "outputs": ["{options.outputFile}"]
                 },
                 "test": {
                     "builder": "@nrwl/jest:jest",
@@ -218,7 +220,8 @@
                             "apps/login/src/**/*.ts",
                             "apps/login/src/**/*.html"
                         ]
-                    }
+                    },
+                    "outputs": ["{options.outputFile}"]
                 },
                 "test": {
                     "builder": "@nrwl/jest:jest",
@@ -251,7 +254,8 @@
                             "libs/shared/data-access-user/src/**/*.ts",
                             "libs/shared/data-access-user/src/**/*.html"
                         ]
-                    }
+                    },
+                    "outputs": ["{options.outputFile}"]
                 }
             }
         },
@@ -276,7 +280,8 @@
                             "libs/ui/src/**/*.ts",
                             "libs/ui/src/**/*.html"
                         ]
-                    }
+                    },
+                    "outputs": ["{options.outputFile}"]
                 }
             }
         },
@@ -299,7 +304,8 @@
                     "builder": "@nrwl/linter:eslint",
                     "options": {
                         "lintFilePatterns": ["libs/util/**/*.ts"]
-                    }
+                    },
+                    "outputs": ["{options.outputFile}"]
                 },
                 "test": {
                     "builder": "@nrwl/jest:jest",
@@ -349,7 +355,8 @@
                     "builder": "@nrwl/linter:eslint",
                     "options": {
                         "lintFilePatterns": ["apps/whatsapp-backend/**/*.ts"]
-                    }
+                    },
+                    "outputs": ["{options.outputFile}"]
                 },
                 "test": {
                     "builder": "@nrwl/jest:jest",
@@ -448,7 +455,8 @@
                             "apps/whatsapp-ui/src/**/*.ts",
                             "apps/whatsapp-ui/src/**/*.html"
                         ]
-                    }
+                    },
+                    "outputs": ["{options.outputFile}"]
                 },
                 "test": {
                     "builder": "@nrwl/jest:jest",
