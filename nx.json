@@ -15,7 +15,8 @@
       "runner": "@nrwl/nx-cloud",
       "options": {
         "cacheableOperations": ["build", "lint", "test", "e2e"],
-        "accessToken": "ODkyZjMzNGEtZGIxOC00MTkyLWE5MWYtNGQ4NGFiZWEwYWM1fHJlYWQtd3JpdGU="
+        "accessToken": "ODkyZjMzNGEtZGIxOC00MTkyLWE5MWYtNGQ4NGFiZWEwYWM1fHJlYWQtd3JpdGU=",
+        "parallel": 3
       }
     }
   },
@@ -27,16 +28,36 @@
       }
     ]
   },
-  "projects": {
-    "whatsapp-backend": {
-      "tags": []
+  "cli": {
+    "defaultCollection": "@nrwl/angular",
+    "packageManager": "npm"
+  },
+  "defaultProject": "whatsapp-ui",
+  "generators": {
+    "@nrwl/angular": {
+      "application": {
+        "linter": "eslint"
+      },
+      "library": {
+        "linter": "eslint"
+      },
+      "storybook-configuration": {
+        "linter": "eslint"
+      }
     },
-    "whatsapp-ui": {
-      "tags": []
+    "@nrwl/angular:application": {
+      "style": "scss",
+      "linter": "eslint",
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
     },
-    "whatsapp-ui-e2e": {
-      "tags": [],
-      "implicitDependencies": ["whatsapp-ui"]
+    "@nrwl/angular:library": {
+      "style": "scss",
+      "linter": "eslint",
+      "unitTestRunner": "jest"
+    },
+    "@nrwl/angular:component": {
+      "style": "scss"
     }
   }
 }
