@@ -1,0 +1,28 @@
+{
+  "root": "apps/whatsapp-ui-e2e",
+  "sourceRoot": "apps/whatsapp-ui-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/whatsapp-ui-e2e/cypress.json",
+        "devServerTarget": "whatsapp-ui:serve:development",
+        "tsConfig": "apps/whatsapp-ui-e2e/tsconfig.json"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "whatsapp-ui:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["apps/whatsapp-ui-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["whatsapp-ui"]
+}

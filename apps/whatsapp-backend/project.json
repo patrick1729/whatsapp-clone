@@ -1,0 +1,51 @@
+{
+  "root": "apps/whatsapp-backend",
+  "sourceRoot": "apps/whatsapp-backend/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/node:webpack",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/whatsapp-backend",
+        "main": "apps/whatsapp-backend/src/main.ts",
+        "tsConfig": "apps/whatsapp-backend/tsconfig.app.json",
+        "assets": ["apps/whatsapp-backend/src/assets"]
+      },
+      "configurations": {
+        "production": {
+          "optimization": true,
+          "extractLicenses": true,
+          "inspect": false,
+          "fileReplacements": [
+            {
+              "replace": "apps/whatsapp-backend/src/environments/environment.ts",
+              "with": "apps/whatsapp-backend/src/environments/environment.prod.ts"
+            }
+          ]
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/node:node",
+      "options": {
+        "buildTarget": "whatsapp-backend:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["apps/whatsapp-backend/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/whatsapp-backend"],
+      "options": {
+        "jestConfig": "apps/whatsapp-backend/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
